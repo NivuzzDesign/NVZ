@@ -8,7 +8,6 @@ export const Projects = () => {
   const openPortfolio = () => {
     window.open(
       "https://drive.google.com/drive/folders/1V0fq5ZwOE6XekqpZg55RZXFCervGBV1W?usp=drive_link",
-      "_blank"
     );
   };
 

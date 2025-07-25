@@ -13,7 +13,6 @@ export const Contact = () => {
   const handleWhatsApp = () => {
     const message = `Name: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
     const url = `https://wa.me/917358755490?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
   };
 
   return (
