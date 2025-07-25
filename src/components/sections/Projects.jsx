@@ -8,7 +8,7 @@ export const Projects = () => {
   const openPortfolio = () => {
     window.open(
       "https://drive.google.com/drive/folders/1V0fq5ZwOE6XekqpZg55RZXFCervGBV1W?usp=drive_link",
-     
+      "_blank"
     );
   };
 
@@ -35,7 +35,7 @@ export const Projects = () => {
       id="projects"
       sx={{
         minHeight: "100vh",
-        py: { xs: 8, md: 12 },
+        py: { xs: 6, sm: 8, md: 12 },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -82,13 +82,14 @@ export const Projects = () => {
           variant="h3"
           sx={{
             fontWeight: 900,
-            mb: { xs: 6, md: 8 },
+            mb: { xs: 4, sm: 6, md: 8 },
             fontFamily: "'Montserrat', sans-serif",
             background: "linear-gradient(90deg, #f59e0b, #d97706)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             letterSpacing: 1,
-            textTransform: "uppercase"
+            textTransform: "uppercase",
+            fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" }
           }}
         >
           Our Works
@@ -96,16 +97,19 @@ export const Projects = () => {
 
         <Stack
           direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 4, sm: 6 }}
+          spacing={{ xs: 3, sm: 4, md: 6 }}
           justifyContent="center"
           alignItems="stretch"
+          sx={{ mb: { xs: 4, sm: 6 } }}
         >
           {projects.map(({ title, imageUrl, description }, index) => (
             <Paper
               key={index}
               elevation={4}
               sx={{
-                width: { xs: "100%", sm: 360 },
+                width: { xs: "100%", sm: 300, md: 360 },
+                maxWidth: { xs: 400, sm: "none" },
+                mx: "auto",
                 borderRadius: 2,
                 overflow: "hidden",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -129,21 +133,22 @@ export const Projects = () => {
                 loading="lazy"
                 sx={{
                   width: "100%",
-                  height: 240,
+                  height: { xs: 200, sm: 220, md: 240 },
                   objectFit: "cover",
                   filter: "brightness(0.9)"
                 }}
               />
               
-              <Box sx={{ p: 3, flexGrow: 1 }}>
+              <Box sx={{ p: { xs: 2, sm: 3 }, flexGrow: 1 }}>
                 <Typography
                   variant="h6"
                   sx={{
                     color: "common.white",
                     fontWeight: 700,
                     fontFamily: "'Poppins', sans-serif",
-                    mb: 1.5,
-                    textAlign: "left"
+                    mb: 1,
+                    textAlign: "left",
+                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" }
                   }}
                 >
                   {title}
@@ -155,7 +160,7 @@ export const Projects = () => {
                     color: "rgba(255, 255, 255, 0.7)",
                     textAlign: "left",
                     mb: 2,
-                    fontSize: "0.9rem"
+                    fontSize: { xs: "0.8rem", sm: "0.9rem" }
                   }}
                 >
                   {description}
@@ -168,6 +173,7 @@ export const Projects = () => {
                     sx={{
                       borderColor: "#f59e0b",
                       color: "#f59e0b",
+                      fontSize: { xs: "0.75rem", sm: "0.875rem" },
                       "&:hover": {
                         backgroundColor: "rgba(245, 158, 11, 0.1)",
                         borderColor: "#f59e0b",
@@ -200,11 +206,11 @@ export const Projects = () => {
           size="large"
           onClick={openPortfolio}
           sx={{
-            mt: { xs: 8, md: 10 },
-            px: 6,
-            py: 1.8,
+            mt: { xs: 6, sm: 8, md: 10 },
+            px: { xs: 4, sm: 6 },
+            py: { xs: 1.2, sm: 1.8 },
             fontWeight: "bold",
-            fontSize: "1rem",
+            fontSize: { xs: "0.875rem", sm: "1rem" },
             borderRadius: 0,
             backgroundColor: "#f59e0b",
             color: "#1c1917",
@@ -234,7 +240,7 @@ export const Projects = () => {
         zIndex: 1
       }} />
 
-      {/* Floating architectural elements */}
+      {/* Floating architectural elements - hidden on mobile */}
       <Box sx={{
         position: "absolute",
         bottom: 80,
